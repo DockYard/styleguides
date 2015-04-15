@@ -21,10 +21,25 @@
 
 * [Arrays](#arrays)
 
-## Functions
+### Properties
+
+* [Properties](#properties)
+
+### Strings
+
+* [Strings](#strings)
+
+### Functions
 
 * [Functions](#functions)
 * [Function Arguments](#function-arguments)
+
+### ES2015 Features
+
+* [Declaration](#declaration)
+* [Destructuring](#destructuring)
+* [Destructured Parameters](#destructured-parameters)
+* [Default Parameters](#default-parameters)
 
 ## Block Statements
 
@@ -328,6 +343,20 @@ var foo = {
 foo[propertyName];
 ```
 
+## Strings
+
+* Use single quotes.
+
+```javascript
+var food = 'croissant';
+```
+
+* Use double quotes to avoid escaping.
+
+```javascript
+var msg = "Let's do something.";
+```
+
 ## Functions
 
 + Make sure to name functions when you define them.
@@ -416,5 +445,87 @@ function fooBar(opt) {
   var options = opt;
 
   options = 3;
+}
+```
+
+## Declaration
+
+Prefer `let` to `var` for variable declarations.
+
+```javascript
+if (condition) {
+  let color = 'blue'; // block-scope, no hoisting
+}
+
+for (let i = 0; i < items.length; i++) {
+  process(items[i]);
+}
+```
+
+Use `const` to declare constants.
+
+```javascript
+const MAX_ITEMS = 30;
+```
+
+_Both are block-scoped._
+
+## Destructuring
+
+When decomposing simple arrays or objects, prefer [destructuring](http://babeljs.io/docs/learn-es6/#destructuring).
+
+```javascript
+// array destructuring
+var fullName = 'component:foo-bar';
+var [
+  first,
+  last
+] = fullName.split(':');
+```
+
+```javascript
+// object destructuring
+var person = {
+  firstName: 'Stefan',
+  lastName: 'Penner'
+}
+
+var {
+  firstName,
+  lastName
+} = person;
+```
+
+## Destructured Parameters
+
+When using destructured parameters, always provide a default value to avoid an error being thrown when the argument is not provided.
+
+```javascript
+// Good
+function setCookie(name, value, { secure, path, domain, expires } = {}) {
+}
+
+// Will not throw an error
+setCookie('type', 'js');
+
+// Bad
+function setCookie(name, value, { secure, path, domain, expires }) {
+}
+
+// Will throw an error
+setCookie('type', 'js');
+```
+
+## Default Parameters
+
+Use whitespace around `=` when specifying default parameters.
+
+```javascript
+// Good
+function makeRequest(url, timeout = 2000, callback = function() {}) {
+}
+
+// Bad
+function makeRequest(url, timeout=2000, callback=function() {}) {
 }
 ```
