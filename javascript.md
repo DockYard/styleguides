@@ -779,6 +779,21 @@ const foo = {
 };
 ```
 
++ Use appropriately named functions when chaining. This will increase readablility/maintainability. Always use named functions with promise chaining.
+
+```javascript
+// good
+function hasBlogPosts(user) {
+  return get(user, 'posts.length') > 0;
+}
+
+return users.filter(hasBlogPosts);
+
+// bad
+return users.filter(function(user) {
+  return get(user, 'posts.length') > 0;
+});
+
 + Use scope to lookup functions (not variables).
 
 ```javascript
