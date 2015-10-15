@@ -259,3 +259,188 @@ export default Model.extend({
 
 Group attributes, relations, then computed properties. Organize each
 subgroup alphabetically.
+
+
+## Tests
+
+### Unit
+Definition: Testing algorithimic complexity one collaborator at a time, no additional collaborators.
+Example: Asserting the return value of a function or computed given certain inputs.
+
+### Integration
+Definition: Testing the interaction between multiple units (but still at a level that understands the implementation).
+Example: Asserting that a component or group of components renders correctly given they are instantiated with certain arguments
+
+### Acceptance
+Definition: Black box testing of the application, often tied directly to high level business use-cases. Simulate the outside world.
+Example: Asserting that when the user visits the blog, a list of posts is shown.
+
+### Page Objects
+Use Page Objects for modeling interactions with the application during tests.
+Page Objects are responsible for knowing about the HTML and CSS
+implementation details of the application and providing an API for
+interacting with page elements. This isolates our tests from
+presentation details and provides a single place to fix breakages due to
+changes in presentation.
+
+```js
+// Good
+
+// tests/page-objects/base.js
+export default class BaseObject {
+  clickWithText(selector, text) {
+    click(selector, `:contains("${title}")`);
+    return this;
+  }
+}
+
+// tests/page-objects/posts-index.js
+import BaseObject from './base';
+
+export default class PostsIndexObject extends BaseObject {
+  clickPostTitle(title) {
+    click('.post-item', `:contains("${title}")`);
+    return this;
+  }
+}
+
+// Test
+test('clicking post title navigates to the post show page', function(assert) {
+  visit('/posts');
+
+  new PostsIndexObject({ assert })
+    .clickPostTitle('Best Post Ever!');
+
+  // more test code
+});
+```
+
+```js
+// Bad
+
+// Test
+test('clicking post title navigates to the post show page', function(assert) {
+  visit('/posts');
+  click('.post-item:contains("Best Post Evar!")');
+
+  // more test code
+});
+```
+
+### Data Attributes
+When using data attributes to target page elements, use attribute values
+that are unique, even between elements of the same 'type'.
+
+```hbs
+{{! Good }}
+
+<div data-auto-id="posts-list">
+  {{#each posts as |post|}}
+    {{post-item post=post data-auto-id=(dasherize-and-concat "post-list-item" post.title)}}
+  {{/each}}
+</div>
+```
+
+```hbs
+{{! Bad }}
+
+<div data-auto-id="posts-list">
+  {{#each posts as |post|}}
+    {{post-item post=post data-auto-id="posts-list-item"}}
+  {{/each}}
+</div>
+```
+
+### Server Mocking
+Ideally, tests that require interaction with a backend should be
+run against a test instance of the backend as described in [this blog
+post](https://dockyard.com/blog/2015/03/25/testing-when-your-frontend-and-backend-are-separated).
+When this approach is not possible, use
+[Pretender](https://github.com/pretenderjs/pretender) to create a mock
+server and stub out endpoint responses.
+
+Stub endpoints on a per-test basis rather than sharing static fixture responses
+between tests. Sharing static fixture responses between tests leads to
+duplication between fixtures and/or test failures due to changes in shared fixtures.
+
+```js
+// Good
+import Ember from 'ember';
+import { module, test } from 'qunit';
+import startApp from 'my-app/tests/helpers/start-app';
+import Pretender from 'pretender';
+import prepareResponse from '../helpers/prepare-response';
+import PostFactory from '../factories/post';
+
+let application, server;
+
+module('Acceptance: Posts Index', {
+  beforeEach() {
+    application = startApp();
+    server = new Pretender();
+  },
+
+  afterEach() {
+    Ember.run(application, 'destroy');
+  }
+});
+
+test('`More Posts` button is disabled when there are no more posts', function(assert) {
+  assert.expect(2);
+
+  prepareResponse(server, '/posts', {
+    method: 'GET',
+    response: { data: PostFactory.build(10) }
+  });
+
+  new PostsIndexObject({ assert })
+    .visit()
+    .assertPostsCount(10)
+    .assertMorePostsEnabled(false);
+});
+
+test('`More Posts` button is enabled when there are more posts', function(assert) {
+  assert.expect(2);
+
+  prepareResponse(server, '/posts', {
+    method: 'GET',
+    response: { data: PostFactory.build(11) }
+  });
+
+  new PostsIndexObject({ assert })
+    .visit()
+    .assertPostsCount(10)
+    .assertMorePostsEnabled(true);
+});
+```
+
+```js
+// Bad
+import Ember from 'ember';
+import { module, test } from 'qunit';
+import startApp from 'my-app/tests/helpers/start-app';
+import startServer from '../helpers/start-server';
+
+let application, server;
+
+module('Acceptance: Posts Index', {
+  beforeEach() {
+    application = startApp();
+    server = startServer(); // This function returns a pretender instance with static responses that are shared between tests.
+  },
+
+  afterEach() {
+    Ember.run(application, 'destroy');
+    server = undefined;
+  }
+});
+
+test('`More Posts` button is disabled when there are no more posts', function(assert) {
+  assert.expect(2);
+
+  new PostsIndexObject({ assert })
+    .visit()
+    .assertPostsCount(10)
+    .assertMorePostsEnabled(false);
+});
+```
