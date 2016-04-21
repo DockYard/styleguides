@@ -17,8 +17,8 @@
 # bad
 answer=1-3
 
-def square(a) when a > 0,
-  do: a * a
+def square(a) when a>0,
+  do: a*a
 
 Enum.map(["cat","dog"], fn(value) -> IO.puts(value) end)
 
