@@ -4,7 +4,6 @@
 
 * [General](#general)
 * [Organizing your modules](#organizing-your-modules)
-* [Models](#models)
 * [Controllers](#controllers)
 * [Templates](#templates)
 * [Routing](#routing)
@@ -201,63 +200,6 @@ app
     serializer.js
 ```
 
-## Models
-
-### Organization
-
-Models should be grouped as follows:
-
-* Attributes
-* Associations
-* Computed Properties
-
-Within each section, the attributes should be ordered alphabetically.
-
-```js
-// Good
-
-import Ember from 'ember';
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { hasMany } from 'ember-data/relationships';
-
-const { computed } = Ember;
-
-export default Model.extend({
-  // Attributes
-  firstName: attr('string'),
-  lastName: attr('string'),
-
-  // Associations
-  children: hasMany('child'),
-
-  // Computed Properties
-  fullName: computed('firstName', 'lastName', function() {
-    // Code
-  })
-});
-
-// Bad
-
-import Ember from 'ember';
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { hasMany } from 'ember-data/relationships';
-
-const { computed } = Ember;
-
-export default Model.extend({
-  children: hasMany('child'),
-  firstName: attr('string'),
-  lastName: attr('string'),
-
-  fullName: computed('firstName', 'lastName', function() {
-    // Code
-  })
-});
-
-```
-
 ## Controllers
 
 ### Define query params first
@@ -431,5 +373,52 @@ export default Model.extend({
 
 ### Organize your models
 
-Group attributes, relations, then computed properties. Organize each
-subgroup alphabetically.
+Models should be grouped as follows:
+
+* Attributes
+* Associations
+* Computed Properties
+
+Within each section, the attributes should be ordered alphabetically.
+
+```js
+// Good
+import Model from 'ember-data/model';
+
+import computed from 'ember-computed';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
+
+export default Model.extend({
+  // Attributes
+  firstName: attr('string'),
+  lastName: attr('string'),
+
+  // Associations
+  children: hasMany('child'),
+
+  // Computed Properties
+  fullName: computed('firstName', 'lastName', function() {
+    // Code
+  })
+});
+
+// Bad
+
+import Model from 'ember-data/model';
+
+import computed from 'ember-computed';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
+
+
+export default Model.extend({
+  children: hasMany('child'),
+  firstName: attr('string'),
+  lastName: attr('string'),
+
+  fullName: computed('firstName', 'lastName', function() {
+    // Code
+  })
+});
+```
