@@ -87,7 +87,7 @@ export default Model.extend({
 export default Model.extend({
   firstName: attr('string'),
   lastName: attr('string'),
-  
+
   fullNameBad: function() {
     // Code
   }.property('firstName', 'lastName'),
@@ -187,37 +187,6 @@ export default Component.extend({
 Rather than using the object's `init` hook via `on`, override init and
 call `_super` with `...arguments`. This allows you to control execution
 order. [Don't Don't Override Init](https://dockyard.com/blog/2015/10/19/2015-dont-dont-override-init)
-
-### Use Pods structure
-
-Store local components within their pod, global components in the
-`components` structure.
-
-```
-app
-  application/
-    template.hbs
-    route.js
-  blog/
-    index/
-      blog-listing/ - component only used on the index template
-        template.hbs
-      route.js
-      template.hbs
-    route.js
-    comment-details/ - used within blog templates
-      component.js
-      template.hbs
-
-  components/
-    tag-listing/ - used throughout the app
-      template.hbs
-
-  post/
-    adapter.js
-    model.js
-    serializer.js
-```
 
 ## Models
 
