@@ -73,29 +73,41 @@ export default DS.Model.extend({
 });
 ```
 
-### Do not use Ember's `function` prototype extensions
+### Don't use Ember's prototype extensions
+
+Avoid Ember's `Date`, `Function` and `String` prototype extensions. Prefer the
+corresponding functions from the `Ember` object.
+
+Preferably turn the prototype extensions off by updating the
+`EmberENV.EXTEND_PROTOTYPES` setting in your `config/environment` file.
+
+```javascript
+module.exports = function(environment) {
+  var ENV = {
+    EmberENV: {
+      EXTEND_PROTOTYPES: {
+        Date: false,
+        Function: false,
+        String: false
+      }
+    }
+```
 
 ```javascript
 // Good
 
 export default Model.extend({
-  firstName: attr('string'),
-  lastName: attr('string'),
-
-  fullName: computed('firstName', 'lastName', function() {
-    // Code
-  })
+  hobbies: w('surfing skateboarding skydiving'),
+  fullName: computed('firstName', 'lastName', function() { ... }),
+  didError: on('error', function() { ... })
 });
 
 // Bad
 
 export default Model.extend({
-  firstName: attr('string'),
-  lastName: attr('string'),
-
-  fullNameBad: function() {
-    // Code
-  }.property('firstName', 'lastName'),
+  hobbies: 'surfing skateboarding skydiving'.w(),
+  fullName: function() { ... }.property('firstName', 'lastName'),
+  didError: function() { ... }.on('error')
 });
 ```
 
