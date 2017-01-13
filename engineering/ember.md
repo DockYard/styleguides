@@ -145,28 +145,54 @@ fullName: computed('user.firstName', 'user.lastName', {
 
 ## Organizing your modules
 
+Ordering a module's properties in a predictable manner will make it easier to
+scan.
+
+1. __Plain properties__
+
+   Start with properties that configure the module's behavior. Examples are
+   `tagName` and `classNames` on components and `queryParams` on controllers and
+   routes. Followed by any other simple properties, like default values for properties.
+
+2. __Single line computed property macros__
+
+   E.g. `alias`, `sort` and other macros. Start with service injections. If the
+   module is a model, then `attr` properties should be first, followed by
+   `belongsTo` and `hasMany`.
+
+3. __Multi line computed property functions__
+
+4. __Lifecycle hooks__
+
+   The hooks should be chronologically ordered by the order they are invoked in.
+
+5. __Functions__
+
+   Public functions first, internal functions after.
+
+6. __Actions__
+
 ```js
 export default Component.extend({
-  // Defaults
+  // Plain properties
   tagName: 'span',
 
   // Single line CP
   post: alias('myPost'),
 
   // Multiline CP
-  authorName: computed('author.{firstName,lastName}', {
-    get() {
-      // Code
-    },
-
-    set() {
-      // Code
-    }
+  authorName: computed('author.{firstName,lastName}', function() {
+    // code
   }),
 
   // Lifecycle hooks
   didReceiveAttrs() {
     this._super(...arguments);
+    // code
+  },
+
+  // Functions
+  someFunction() {
     // code
   },
 
@@ -177,15 +203,6 @@ export default Component.extend({
   }
 });
 ```
-
-- Define your object's default values first.
-- Define single line computed properties (`thing: alias('myThing')`) second.
-- Multi-line computed properties should follow your single line CPs. Please
-  follow the [new computed syntax](http://emberjs.com/blog/2015/05/13/ember-1-12-released.html#toc_new-computed-syntax).
-- Define lifecycle hooks (`init`, `didReceiveAttrs`, `didRender`, `willDestroy`)
-  after computed properties.
-- Define your route/component/controller's action last, to provide a common
-  place that actions can be found.
 
 ### Override init
 
