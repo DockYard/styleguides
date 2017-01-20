@@ -111,6 +111,33 @@ export default Model.extend({
 });
 ```
 
+### Prefer to override lifecycle hooks over `Ember.on`
+
+Prefer to override lifecycle hooks like `init`, `didReceiveAttrs` and
+`didRender` over using `Ember.on`. This allows you to control execution order.
+Always call `_super` when you override a lifecycle hook.
+
+See: [Don't Don't Override Init](https://dockyard.com/blog/2015/10/19/2015-dont-dont-override-init)
+
+```javascript
+// Good
+
+export default Component.extend({
+  init() {
+    this._super(...arguments);
+    // logic
+  }
+});
+
+// Bad
+
+export default Component.extend({
+  init: on('init', function() {
+    // logic
+  })
+});
+```
+
 ### Use `get` and `set`
 
 Calling `someObj.get('prop')` couples your code to the fact that
@@ -198,12 +225,6 @@ export default Component.extend({
   after computed properties.
 - Define your route/component/controller's action last, to provide a common
   place that actions can be found.
-
-### Override init
-
-Rather than using the object's `init` hook via `on`, override init and
-call `_super` with `...arguments`. This allows you to control execution
-order. [Don't Don't Override Init](https://dockyard.com/blog/2015/10/19/2015-dont-dont-override-init)
 
 ## Models
 
