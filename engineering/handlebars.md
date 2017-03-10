@@ -25,7 +25,8 @@ or helper name.
 {{x-thing
     value=blah
     options=options
-    label="thing"}}
+    label="thing"
+}}
 
 {{! bad }}
 {{x-thing
@@ -34,6 +35,7 @@ or helper name.
   label="thing"}}
 
 {{! this will be annoying to re-indent if you rename your component }}
+{{! this is also annoying to add a new line you'd like at the end of the expression, or to remove the last line }}
 {{x-thing value=blah
           options=options
           label="thing"}}
