@@ -1,6 +1,6 @@
-#PostCSS
+# PostCSS
 
-##What is PostCSS?
+## What is PostCSS?
 [PostCSS](https://github.com/postcss/postcss) is meant to help create a lean development environment. It does this by adding CSS development tools modularly.
 
 For example we use the following:
@@ -18,34 +18,45 @@ To learn about the plugins we choose to use in narwin-pack read through the narw
 
 To get a grasp on how to use PostCSS use the steps below to add PostCSS and narwin-pack to an Ember project.
 
-##How to install
-###Add PostCSS to your project
+## How to install
+### Add PostCSS to your project
 
 ```shell
-$npm install --save ember-cli-postcss
+$npm install --save-dev ember-cli-postcss
 ```
 
-###Add narwin-pack
+### Add narwin-pack
 
 ```shell
-$npm install --save narwin-pack
+$npm install --save-dev narwin-pack
 ```
 
-Add PostCSS to the `ember-cli-build.js` file on the root of the Ember project.
+Add PostCSS to the `ember-cli-build.js` file on the root of the Ember project with `inline-svg` path options.
 
 ```js
-var app = new EmberApp(defaults, {
-  postcssOptions: {
-    plugins: [
-      {
-        module: require('narwin-pack')
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    postcssOptions: {
+      compile: {
+        plugins: [
+          {
+            module: require('narwin-pack'),
+            options: {
+              'inline-svg': {
+                path: 'public/assets/foo'
+              }
+            }
+          }
+        ]
       }
-    ]
-  }
-});
+    }
+  });
+
+  return app.toTree();
+};
 ```
 
 If you want to add another plugin to your project go over it with the team and the new plugin can always be added to narwin-pack.
 
-##Further reading
+## Further reading
 - [PostCSS Deep Dive](http://webdesign.tutsplus.com/series/postcss-deep-dive--cms-889)
