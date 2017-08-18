@@ -44,7 +44,7 @@ and the
   ```
 
 * `.has-` for shared styles.
-  ![Learnivore](images/learnivore.png)
+  ![Learnivore](assets/learnivore.png)
   Here, there are multiple elements that have shared styles of pseudo
   after classes with an arrow (→). In this case, both would have classes
   of `.has-arrow`.
@@ -87,7 +87,7 @@ and the
 ## Common Patterns
 
 * Same content on index and show / detail pages
-  ![RubyGems](images/rubygems.png)
+  ![RubyGems](assets/rubygems.png)
   On the left is the gems index of RubyGems.org and on the right is the
   detail page of a gem. Elements such as the gem name, gem version and gem
   summary are all repeated content that are styled in different ways. Body
@@ -98,7 +98,7 @@ and the
   `.gem .gem__name` on the show / detail page).
 * Plurals should be used when possible for groups of items.
   [Here is a JS bin to illustrate this pattern.](http://jsbin.com/cusese/2/embed?html,css,output)
-  ![Footer](images/footer.png)
+  ![Footer](assets/footer.png)
   Here is a footer with socials links. The group of social links would be
   called `.socials`, each item is a `.social` and if you need specific
   style on the Twitter icon, it would be called `.social--twitter`. We
