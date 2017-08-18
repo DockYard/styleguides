@@ -1,11 +1,9 @@
 # HTML
 
 Read
-[HTML section of Mark Otto’s (@mdo) code guide]
-(http://codeguide.co/#html)
+[HTML section of Mark Otto’s (@mdo) code guide](http://codeguide.co/#html)
 and
-[Avoiding common HTML5 Mistakes]
-(http://html5doctor.com/avoiding-common-html5-mistakes/).
+[Avoiding common HTML5 Mistakes](http://html5doctor.com/avoiding-common-html5-mistakes/).
 
 In addition to @mdo’s Code Guide:
 
@@ -29,8 +27,7 @@ We do this:
 ```
 
 The period has to be right after the anchor tag in this case because we don’t want an
-[extra space]
-(http://stackoverflow.com/questions/588356/why-does-the-browser-renders-a-newline-as-space)
+[extra space](http://stackoverflow.com/questions/588356/why-does-the-browser-renders-a-newline-as-space)
 when the browser renders it. This makes it easier to see all elements
 even in narrower Vim windows.
 
@@ -42,13 +39,11 @@ But sometimes we can’t avoid it:
 
 because there shouldn’t be a space or possibility of line break
 between the date and its
-[ordinal indicator]
-(http://en.wikipedia.org/wiki/Ordinal_indicator).
+[ordinal indicator](http://en.wikipedia.org/wiki/Ordinal_indicator).
 
 ## Comments
 
-* [Clear communication through HTML and GitHub]
-  (https://dockyard.com/blog/2015/09/02/clear-communication-through-html)
+* [Clear communication through HTML and GitHub](https://dockyard.com/blog/2015/09/02/clear-communication-through-html)
 * Add TODO’s for incomplete placeholder links, images and copy. Examples
   of this happening are when we don’t have final copy or when dev needs
   to make it dynamic.
@@ -59,33 +54,26 @@ between the date and its
 
 ## Escaping characters
 
-* [Use escapes for `&lt;`(<), `&gt;`(>), `&amp;`(&).]
-  (http://www.w3.org/International/questions/qa-escapes#use)
+* [Use escapes for `&lt;`(<), `&gt;`(>), `&amp;`(&).](http://www.w3.org/International/questions/qa-escapes#use)
 * No need to escape for
-  [smartquotes]
-  (http://smartquotesforsmartpeople.com/) or en/em dashes. Makes it
+  [smartquotes](http://smartquotesforsmartpeople.com/) or en/em dashes. Makes it
   easier to read.
 
 ## QA
 
 * Check HTML in
-  [WAVE’s outliner plugin]
-  (https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US)
+  [WAVE’s outliner plugin](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US)
   or your favorite outliner. Does how we broke it down makes sense?
 * Test with screenreader (VoiceOver and
-  [NVDA]
-  (http://www.nvaccess.org/)).
+  [NVDA](http://www.nvaccess.org/)).
 * Make sure
-  [forms are semantic and accessible]
-  (http://www.uxbooth.com/articles/styling-forms-accessibly/).
+  [forms are semantic and accessible](http://www.uxbooth.com/articles/styling-forms-accessibly/).
 * Are there any extra elements that are unnecessary?
 
 ## Common Patterns
 
-* [Cites and blockquotes]
-  (http://html5doctor.com/cite-and-blockquote-reloaded/)
-* [Figures and figcaptions]
-  (http://html5doctor.com/the-figure-figcaption-elements/)
+* [Cites and blockquotes](http://html5doctor.com/cite-and-blockquote-reloaded/)
+* [Figures and figcaptions](http://html5doctor.com/the-figure-figcaption-elements/)
 * The less elements the better. We try to avoid elements that are only
   there for styling purposes. It’s simpler to have less elements unless
   they are needed for semantic reasons.

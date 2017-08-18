@@ -5,39 +5,32 @@
 Don’t use IDs to attach visual and interactive styles to elements.
 Everything that needs style can be done without IDs. Avoid usage
 because of their heightened specificity. For more, refer to
-[CSS Wizardry’s “Pain in the class” blog post]
-(http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class/).
+[CSS Wizardry’s “Pain in the class” blog post](http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class/).
 Only use IDs for
-[fragment identifiers]
-(http://csswizardry.com/2011/06/namespacing-fragment-identifiers/#fragment-identifiers).
+[fragment identifiers](http://csswizardry.com/2011/06/namespacing-fragment-identifiers/#fragment-identifiers).
 
 ## BEM Naming Conventions
 
 Use `.block__element--modifier` syntax for naming classes. Refer to
-[CSS Wizardry’s MindBEMding blog post]
-(http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+[CSS Wizardry’s MindBEMding blog post](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 and the
-[BEM website]
-(https://bem.info/method/definitions/).
+[BEM website](https://bem.info/method/definitions/).
 
 * Double underlines for child elements of a block.
 * Double dashes for modifiers.
 * Single dash for multiple words. Example `.club-sandwich`, which
   refers to a three-bar nav icon. Others may call it a hamburger menu.
-* [Avoid chaining modifiers]
-  (http://reefpoints.dockyard.com/2015/01/05/avoid-chaining-modifiers.html).
+* [Avoid chaining modifiers](http://reefpoints.dockyard.com/2015/01/05/avoid-chaining-modifiers.html).
 
 ## Prefixes
 
 * `.is-` for state changes, which follows
-  [SMACSS state rules]
-  (https://smacss.com/book/type-state).
+  [SMACSS state rules](https://smacss.com/book/type-state).
   Most common use cases: is-active (Example: `.nav__link.is-active`
   when a nav link is highlighted to show that it is the current page)
   and is-hidden (hides content visually, but allows screen readers like
   VoiceOver to still read it. There are
-  [many different ways of hiding text]
-  (https://css-tricks.com/examples/ImageReplacement/),
+  [many different ways of hiding text](https://css-tricks.com/examples/ImageReplacement/),
   but let’s stick to this one until we find a case where it breaks.
   ```css
   .is-hidden {
@@ -56,8 +49,7 @@ and the
   after classes with an arrow (→). In this case, both would have classes
   of `.has-arrow`.
 * `.l-` for layout styles modified from
-  [SMACSS layout rules]
-  (https://smacss.com/book/type-layout) to include grid layout
+  [SMACSS layout rules](https://smacss.com/book/type-layout) to include grid layout
   styles such as wraps, columns, and overflows as well as positioning
   styles for elements like `.l-header` or `.l-post`.
 * `.t-` for text styles like text color, display text: `.t-display` and
@@ -105,13 +97,11 @@ and the
   we would style it by nesting (`.gems .gem__name` on the index page and
   `.gem .gem__name` on the show / detail page).
 * Plurals should be used when possible for groups of items.
-  [Here is a JS bin to illustrate this pattern.]
-  (http://jsbin.com/cusese/2/embed?html,css,output)
+  [Here is a JS bin to illustrate this pattern.](http://jsbin.com/cusese/2/embed?html,css,output)
   ![Footer](images/footer.png)
   Here is a footer with socials links. The group of social links would be
   called `.socials`, each item is a `.social` and if you need specific
   style on the Twitter icon, it would be called `.social--twitter`. We
   would rather use its singular form (`.social`) rather than call each
   item `.socials__social`. This is sometimes referred to as the
-  [Plural Parent Pattern]
-  (http://codepen.io/jlong/pen/IzpEJ/).
+  [Plural Parent Pattern](http://codepen.io/jlong/pen/IzpEJ/).

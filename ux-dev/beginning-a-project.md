@@ -11,8 +11,7 @@
 * Do we have to prepare for translation to other languages?
 * How do you want us to prepare the deliverables? (Zip, GitHub, etc.)
 * If the project has already begun, can we use
-  [BEM]
-  (https://github.com/dockyard/styleguides/blob/master/ux-dev/class-naming-conventions.md#bem-naming-conventions)
+  [BEM](https://github.com/dockyard/styleguides/blob/master/ux-dev/class-naming-conventions.md#bem-naming-conventions)
   naming conventions?
 
 ## Questions to Ask Designer
@@ -55,13 +54,11 @@ Order should be alphabetical inside `modules` directory.
 ## BASE.CSS
 
 Follows
-[SMACSS’ Base Rules]
-(https://smacss.com/book/type-base). Defines major default styling.
+[SMACSS’ Base Rules](https://smacss.com/book/type-base). Defines major default styling.
 Does not include class or ID selectors.
 
 We use modified versions of the
-[Meyer reset]
-(http://meyerweb.com/eric/tools/css/reset/).
+[Meyer reset](http://meyerweb.com/eric/tools/css/reset/).
 If certain elements will not be used in the project, they should be removed.
 
 ```css
@@ -118,11 +115,9 @@ q:before, q:after {
 ## LAYOUT.CSS
 
 This does NOT closely follow
-[SMACSS' Layout Rules]
-(https://smacss.com/book/type-layout).
+[SMACSS' Layout Rules](https://smacss.com/book/type-layout).
 We use `layout.css` for wraps, grids and columns. Here is a
-[JS Bin]
-(http://jsbin.com/tiyome/3/edit?html,css,output) that illustrates some
+[JS Bin](http://jsbin.com/tiyome/3/edit?html,css,output) that illustrates some
 common patterns.
 
 `.l-relative` is used for wrapping `div`’s that do not need any

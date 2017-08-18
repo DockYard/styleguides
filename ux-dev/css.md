@@ -1,8 +1,7 @@
 # CSS
 
 Read and follow the
-[CSS Syntax section of Mark Otto’s (@mdo) code guide]
-(http://codeguide.co/#http://codeguide.co/#css-syntax).
+[CSS Syntax section of Mark Otto’s (@mdo) code guide](http://codeguide.co/#http://codeguide.co/#css-syntax).
 We don’t follow much of what comes after the Syntax section, so the rest
 can be skipped.
 
@@ -15,33 +14,26 @@ projects are still written in Sass/SCSS.
 ## Required Reading
 
 * Read
-  [Scalable and Modular Architecture for CSS by Jonathan Snook]
-  (https://smacss.com/)
+  [Scalable and Modular Architecture for CSS by Jonathan Snook](https://smacss.com/)
 * Read
-  [CSS Secrets]
-  (http://shop.oreilly.com/product/0636920031123.do)
+  [CSS Secrets](http://shop.oreilly.com/product/0636920031123.do)
 * Read the
-  [Code Smells in CSS]
-  (http://csswizardry.com/2012/11/code-smells-in-css/)
+  [Code Smells in CSS](http://csswizardry.com/2012/11/code-smells-in-css/)
   article
 * Read the
-  [Writing DRYer vanilla CSS]
-  (http://csswizardry.com/2013/07/writing-dryer-vanilla-css/)
+  [Writing DRYer vanilla CSS](http://csswizardry.com/2013/07/writing-dryer-vanilla-css/)
   article
 * Read the
-  [Shoot to kill; CSS selector intent]
-  (http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/)
+  [Shoot to kill; CSS selector intent](http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/)
   article
 
 ## Extra Reading
 
 When you have free time
 * Read
-  [Designing for Performance by Lara Callender Hogan]
-  (http://designingforperformance.com/index.html)
+  [Designing for Performance by Lara Callender Hogan](http://designingforperformance.com/index.html)
 * Read
-  [Web Form Design by Luke Wroblewski]
-  (http://www.lukew.com/resources/web_form_design.asp)
+  [Web Form Design by Luke Wroblewski](http://www.lukew.com/resources/web_form_design.asp)
 
 ## Selector Order
 
