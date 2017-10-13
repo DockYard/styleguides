@@ -13,18 +13,14 @@
 
 ## General
 
-### Import what you use, do not use globals
+### Create local version of Ember.* and DS.*
 
-For Ember Data, we should import `DS` from `ember-data`, and then
-destructure our desired modules.
-For Ember, use destructuring [as Ember's internal organization is
-not intuitive and difficult to grok, and we should wait until Ember has been
-correctly modularized.](https://github.com/ember-cli/ember-cli-shims/issues/53)
+Destructure the properties you need from the `Ember` and `DS` imports. This makes
+code clearer and reduces unneeded repetition of the `Ember` and `DS` namespaces.
 
-[Here is the RFC on ES2015 modules](https://github.com/emberjs/rfcs/pull/68).
-
-Once Ember has officially adopted shims, we will prefer shims over
-destructuring.
+Once Ember has [officially adopted ES6
+modules](https://github.com/tomdale/rfcs/blob/js-modules/text/0000-javascript-module-api.md),
+we will prefer to import the ES6 modules over destructuring.
 
 ```javascript
 // Good
@@ -34,7 +30,8 @@ import DS from 'ember-data';
 
 const {
   computed,
-  computed: { alias }
+  computed: { alias },
+  get
 } = Ember;
 
 const {
@@ -49,7 +46,7 @@ export default Model.extend({
   surname: alias('lastName'),
 
   fullName: computed('firstName', 'lastName', function() {
-    // Code
+    return `${get(this, 'firstName')} ${get(this, 'lastName')}`;
   })
 });
 
@@ -61,14 +58,8 @@ export default DS.Model.extend({
 
   surname: Ember.computed.alias('lastName'),
 
-  fullName: Ember.computed('firstName', 'lastName', {
-    get() {
-      // Code
-    },
-
-    set() {
-      // Code
-    }
+  fullName: Ember.computed('firstName', 'lastName', function() {
+    return `${get(this, 'firstName')} ${get(this, 'lastName')}`;
   })
 });
 ```
