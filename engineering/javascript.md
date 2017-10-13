@@ -15,24 +15,24 @@
 
 ### Constructors
 
-* [Constructors](#constructors)
+* [Constructors](#constructors-1)
 
 ### Objects
 
-* [Objects](#objects)
+* [Objects](#objects-1)
 * [Properties](#properties)
 
 ### Strings
 
-* [Strings](#strings)
+* [Strings](#strings-1)
 
 ### Arrays
 
-* [Arrays](#arrays)
+* [Arrays](#arrays-1)
 
 ### Functions
 
-* [Functions](#functions)
+* [Functions](#functions-1)
 * [Function Arguments](#function-arguments)
 
 ## Block Statements
