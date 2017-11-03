@@ -1,11 +1,10 @@
 # HTML
 
-Read
-[HTML section of Mark Otto’s (@mdo) code guide](http://codeguide.co/#html)
+Good reads:
+* [HTML section of Mark Otto’s (@mdo) code guide](http://codeguide.co/#html)
 and
-[Avoiding common HTML5 Mistakes](http://html5doctor.com/avoiding-common-html5-mistakes/).
-
-In addition to @mdo’s Code Guide:
+* [Avoiding common HTML5 Mistakes](http://html5doctor.com/avoiding-common-html5-mistakes/).
+* [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
 
 ## Indentation and Line Breaks
 
@@ -44,6 +43,7 @@ between the date and its
 ## Comments
 
 * [Clear communication through HTML and GitHub](https://dockyard.com/blog/2015/09/02/clear-communication-through-html)
+* [The Art of Comments](https://css-tricks.com/the-art-of-comments/)
 * Add TODO’s for incomplete placeholder links, images and copy. Examples
   of this happening are when we don’t have final copy or when dev needs
   to make it dynamic.
