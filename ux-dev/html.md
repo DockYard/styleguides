@@ -52,6 +52,7 @@ between the date and its
   webkit zooming as told by
   http://stackoverflow.com/questions/5303263/fix-font-size-issue-on-mobile-safari-iphone-where-text-is-rendered-inconsisten
 
+Example:
 ```html
 {{! TODO: Include final copy when it is delivered}}
 <p>Hi! This is fake copy that should never see a production environment</p>
