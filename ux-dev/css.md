@@ -42,29 +42,37 @@ alphabetically.
 
 ## Declaration Order
 
-Declarations should first be consistent with the rest of the
-application. After that it should be in order of what affects height.
+Declarations should be consistent throughout the application.
 
-`margin`
-`padding`
-`display`
-`position`
-`top`
-`right`
-`bottom`
-`left`
-`float`
-`overflow`
-`border`
-`border-radius`
-`background`
-`font`
-`line-height`
-`color`
-`letter-spacing`
-`transitions`
+If there is a shorthand version for that set of styles, follow in the order of the shorthand. For margin that would be `margin-top`, `margin-right`, `margin-bottom` then `margin-left`. For border that would be `border-width`, `border-style` then `border-color`.
 
-If there is a shorthand version for that set of styles, follow in the
-order of the shorthand. For `margin` that would be `margin-top`,
-`margin-right`, `margin-bottom` then `margin-left`. For `border` that
-would be `border-width`, `border-style` then `border-color`.
+Example with grouping comments:
+```
+.block {
+  /* BOX-MODEL */
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    display: block;
+
+  /* POSITIONING */
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+  /* TYPOGRAPHY */
+    font-size: 18px;
+    color: var(--green);
+
+  /* VISUAL */
+    border: 1px solid black;
+    background-color: var(--green);
+
+  /* MISC */
+    opacity: 1;
+}
+```
