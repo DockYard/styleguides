@@ -15,21 +15,17 @@
 
 ### Import what you use, do not use globals
 
-For Ember Data, we should import `DS` from `ember-data`, and then destructure 
-our desired modules.
+For Ember Data, we should import `Model`, `attr` and other ember-data modules
+from `ember-data`, and then destructure our desired modules.
 For Ember, we should only import those modules that will be used.
 Ember's imports can be found in the [JavaScript Module API RFC](https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md) and in the [Ember API docs](https://emberjs.com/api/ember/).
 
 ```javascript
 // Good
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 import { alias } from '@ember/object/computed';
-
-const {
-  Model,
-  attr
-} = DS;
 
 export default Model.extend({
   firstName: attr('string'),
@@ -115,9 +111,7 @@ above, we still use `get`/`set`.
 
 ```js
 // Good
-import Ember from 'ember';
-
-const { get, set } = Ember;
+import { get, set } from '@ember/object';
 
 set(this, 'isSelected', true);
 get(this, 'isSelected');
@@ -227,14 +221,10 @@ Within each section, the attributes should be ordered alphabetically.
 
 ```js
 // Good
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 import { computed } from '@ember/object';
-
-const {
-  Model,
-  attr,
-  hasMany
-} = DS;
 
 export default Model.extend({
   // Attributes
@@ -251,14 +241,10 @@ export default Model.extend({
 });
 
 // Bad
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 import { computed } from '@ember/object';
-
-const {
-  Model,
-  attr,
-  hasMany
-} = DS;
 
 export default Model.extend({
   children: hasMany('child'),
