@@ -120,24 +120,6 @@ We use `layout.css` for wraps, grids and columns. Here is a
 [JS Bin](http://jsbin.com/tiyome/3/edit?html,css,output) that illustrates some
 common patterns.
 
-`.l-relative` is used for wrapping `div`’s that do not need any
-styling other than `position: relative`.
-
-```css
-.l-relative {
-  position: relative;
-}
-```
-
-`.l-auto` is used for wrapping `div`’s that do not need any
-styling other than `overflow: auto`.
-
-```css
-.l-auto {
-  overflow: auto;
-}
-```
-
 If there are recurring shared wrap sizes, something like `.l-wrap--s`
 and `.l-wrap--b` would make sense. If not recurring, `.l-header` would
 be better and would not belong in `layout.css`, but in `header.css`.
