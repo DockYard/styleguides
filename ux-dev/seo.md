@@ -3,6 +3,7 @@
 * [benackles SEO Guidelines](https://gist.github.com/benackles/0cac8c561423f01a0e52)
 * [Keyword Reading](https://yoast.com/meta-keywords/)
 * [Schema.org Microdata](http://schema.org/docs/gs.html)
+* [Google Structured Data Intro](https://developers.google.com/search/docs/guides/intro-structured-data)
 * [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool)
 * [WebAiM alt text info](https://webaim.org/techniques/alttext/)
 * [Wave Testing Tool Chrome Download](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
