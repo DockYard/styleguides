@@ -20,13 +20,12 @@ Search engine rankings are speculated to give significant weight to sites with:
 
 Positive, organic user engagement metrics (low bounce rate, time on site, number of pages per session, etc.) also support better page rank as an indicator of good content quality and site credibility.
 
-**Don’t** put too much effort into chasing “advanced” SEO strategies, we can spend our time better buiding a better site which will also help SEO. "Keep it simple"
+**Don’t** put too much effort into chasing “advanced” SEO strategies, we can instead spend our time building a better site which will also help with SEO. "Keep it simple"
 
 Many of these efforts produce diminishing returns on time invested, and most meaningful metrics such as site reputation can be improved organically with strong UX and engaging content.
 
 Generally speaking, the overwhelming majority of SEO is determined by factors that are out of the control of web developers—which are mainly meaningful links from external sites, back to the content.
 * It's our responsibility to at least inform clients that the # 1 thing they can do to improve their SEO is to get other sites to link to their content—whether it be through social media or dedicated arrangements
-
 
 ## Head related
 * Meta title (get as close to **55 characters** as possible, but try to not go over)
