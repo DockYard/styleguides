@@ -21,6 +21,19 @@
 * Do we have rights to all the images being used in the mockup?
 * Does the client have licenses to all the fonts being used?
 
+## Get narwin-pack
+At [DockYard](https://dockyard.com/), we use PostCSS in our projects. [narwin-pack](https://github.com/DockYard/narwin-pack) is our curated collection of PostCSS plugins including:
+
+- [postcss-partial-import](https://github.com/jonathantneal/postcss-partial-import),
+- [postcss-nested](https://github.com/postcss/postcss-nested),
+- [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties),
+- [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg),
+- [postcss-svgo](https://github.com/ben-eb/postcss-svgo),
+- [autoprefixer](https://github.com/postcss/autoprefixer),
+- [postcss-hexrgba](https://github.com/seaneking/postcss-hexrgba)
+- [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments)
+
+
 ## Example File Structure
 
 ```
@@ -29,24 +42,26 @@ stylesheets
     buttons.css
     footer.css
     header.css
+    sidebar.css
   app.css
   base.css
   layout.css
-  load.css
-  type.css
+  variables.css
+  typography.css
 ```
 
 ## APP.CSS
 
 ```css
-@import "load.css";
+@import "variables.css";
 @import "base.css";
 @import "layout.css";
-@import "type.css";
+@import "typography.css";
 
 @import "modules/buttons.css";
 @import "modules/header.css";
 @import "modules/footer.css";
+@import "modules/sidebar.css";
 ```
 
 Order should be alphabetical inside `modules` directory.
@@ -103,13 +118,45 @@ blockquote, q {
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
-    content: none;
-  }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+textarea,
+input,
+select,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  background: transparent;
+}
+textarea {
+  min-height: 136px; /* height of 3 lines */
+}
+select,
+button {
+  line-height: 1em;
+  cursor: pointer;
+}
+/* HTML box-sizing: border-box; reset */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* REMOVE FIREFOX INVALID BOX-SHADOW */
+select:-moz-ui-invalid,
+input:-moz-ui-invalid,
+textarea:-moz-ui-invalid {
+  box-shadow: none;
+}
 ```
 
 ## LAYOUT.CSS
@@ -117,54 +164,123 @@ q:before, q:after {
 This does NOT closely follow
 [SMACSS' Layout Rules](https://smacss.com/book/type-layout).
 We use `layout.css` for wraps, grids and columns. Here is a
-[JS Bin](http://jsbin.com/tiyome/3/edit?html,css,output) that illustrates some
+[JS Bin](https://jsbin.com/hijavakimu/edit?html,css,output) that illustrates some
 common patterns.
 
-If there are recurring shared wrap sizes, something like `.l-wrap--s`
-and `.l-wrap--b` would make sense. If not recurring, `.l-header` would
-be better and would not belong in `layout.css`, but in `header.css`.
+If there are recurring shared wrap sizes, something like `.l-wrap--small`
+and `.l-wrap--big` would make sense. If not recurring, `.l-header` would
+be better and would not belong in `layout.css`, but in `header.css`. We should
+should not specify component classes in `layout.css`, only global classes.
 
+layout.css
 ```css
-.l-wrap--s,
-.l-wrap--b {
+.l-body{
+  display: grid;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
-  width: 90%;
+  @media (max-width: 799px) {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 800px) {
+    grid-template-areas:
+      "header header"
+      "main sidebar"
+      "footer footer";
+    grid-template-columns: 3fr 1fr;
+  }
 }
-
-.l-wrap--s {
-  max-width: 640px;
+.l-body--small{
+  max-width: 680px;
 }
-
-.l-wrap--b {
+.l-body--big {
   max-width: 1020px;
 }
 ```
 
-## LOAD.CSS
-
-Includes color and font variables. Here is a sample `load.css` file. So
-far this only works in Firefox, but with PostCSS, we can use it across
-browsers.
-
+header.css
 ```css
-:root {
-  /* COLORS */
-  --white: #fff;
-  --black: #000;
-  --red: #ff4040;
-
-  /* FONT FAMILIES */
-  --serif: "Libre Baskerville", serif;
-
-  /* FONT WEIGHTS */
-  --light: 300;
-  --book: 400;
-  --bold: 700;
+.l-header{
+  grid-area: header;
+}
+```
+footer.css
+```css
+.l-footer{
+  grid-area: footer;
+}
+```
+sidebar.css
+```css
+.l-sidebar{
+  grid-area: sidebar;
 }
 ```
 
-## TYPE.CSS
+
+## VARIABLES.CSS
+
+Modularize the variables with a source of truth in a color book that is provided from the designer. We group like variables for quick reference. Here is a sample `variables.css` file.
+
+```css
+:root {
+  /* BASE COLORS */
+  --color-black: #000;
+  --color-red: #ff4040;
+  --color-white: #fff;
+
+  /* TYPOGRAPHY COLORS */
+  --color-text-1: #4d4d4d;
+  --color-text-2: #333;
+  --color-text-3: #4d4d4d;
+
+  /* BUTTONS COLORS */
+  --color-button-1: #86a59c;
+  --color-button-2: #643173;
+
+  /* BORDER COLORS */
+  --color-border-1: rgba(#a7aec5, 0.5);
+  --color-border-2: #a7aec5;
+
+  /* COMPONENT COLORS */
+  /* CARD BACKGROUND COLORS */
+  --card-color-background-1: #587291;
+  --card-color-background-2: #768ba5;
+
+  /* CARD TEXT COLORS */
+  --card-color-text-1: var(--color-white);
+  --card-color-text-2: var(--color-text-1);
+
+  /* FONT FAMILY */
+  --font-sans: "Source Sans", sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+
+  /* FONT WEIGHT */
+  --weight-light: 300;
+  --weight-book: 400;
+  --weight-bold: 700;
+  --weight-black: 900;
+}
+```
+
+## TYPOGRAPHY.CSS
+
+Syles in `typography.css` should be specific to typographic properties. You should apply layout
+ through BEM and match the typography class, such as `t-link` with a bem class (i.e.- `<a class="nav__link t-link">`). Any box-modal or visual styles declarations should exist within component files.
+
+Typography propertie include:
+- `font-family`
+- `font-style`
+- `font-size`
+- `font-weight`
+- `font-variant`
+- `line-height`
+
 
 `.t-display` is used for the shared display font style. Most likely a
 page heading.
@@ -205,3 +321,12 @@ appear within a `.t-text`.
   text-decoration: none;
 }
 ```
+
+## Setup SVG Jar
+We use [SVG Jar](https://github.com/ivanvotti/ember-svg-jar) to handle embedding of our SVG images in our Ember projects. To install SVG Jar, run:
+
+`ember install ember-svg-jar`
+
+Place SVG files in your project's `public` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
+
+For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
