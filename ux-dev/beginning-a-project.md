@@ -57,7 +57,7 @@ npm install stylelint-config-narwin --save-dev
 ember install ember-cli-stylelint
 ```
 
-In your project root, you'll have a newly created file, `stylelint`. Add the following:
+In your project root, you'll have a newly created file, `stylelint.js`. Add the following:
 
 ```js
 {
@@ -65,7 +65,7 @@ In your project root, you'll have a newly created file, `stylelint`. Add the fol
 }
 ```
 
-Additionally, in your `ember-cli-build.js` we'll need to update thet CSS linter for CSS instead of SCSS:
+Additionally, in your `ember-cli-build.js` we'll need to update the CSS linter for CSS instead of SCSS:
 ```js
 ....
 module.exports = function(defaults) {
