@@ -110,14 +110,18 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
 }
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -168,7 +172,7 @@ We use `layout.css` for wraps, grids and columns. Here is a
 common patterns.
 
 If there are recurring shared wrap sizes, something like `.l-wrap--small`
-and `.l-wrap--big` would make sense. If not recurring, `.l-header` would
+and `.l-wrap--big` would make sense. If not recurring, `.header` would
 be better and would not belong in `layout.css`, but in `header.css`. We should
 should not specify component classes in `layout.css`, only global classes.
 
@@ -205,19 +209,19 @@ should not specify component classes in `layout.css`, only global classes.
 
 `header.css`
 ```css
-.l-header {
+.header {
   grid-area: header;
 }
 ```
 `footer.css`
 ```css
-.l-footer {
+.footer {
   grid-area: footer;
 }
 ```
 `sidebar.css`
 ```css
-.l-sidebar {
+.sidebar {
   grid-area: sidebar;
 }
 ```
@@ -227,6 +231,7 @@ should not specify component classes in `layout.css`, only global classes.
 
 Modularize the variables with a source of truth in a color book that is provided from the designer. We group like variables for quick reference. Here is a sample `variables.css` file.
 
+`variables.css`
 ```css
 :root {
   /* BASE COLORS */
@@ -245,28 +250,13 @@ Modularize the variables with a source of truth in a color book that is provided
   --color-gray-4: #4d4d4d;
   --color-gray-5: #1b1b1b;
 
-  /* NEUTRAL GLOBAL COLORS */
-  --color-g-black: var(--color-black);
-  --color-g-primary-gray: var(--color-gray-4);
-  --color-g-primary-secondary: var(--color-gray-5);
-  --color-g-background-gray: var(--color-gray-1);
-
-  /* BUTTONS COLORS */
-  --color-g-button-text: var(--color-white);
-  --color-g-button-background: var(--color-brand-primary);
-  --color-g-button-background-hover: var(--color-brand-primary-alt);
-
-  /* BORDER COLORS */
-  --color-g-border-1: rgba(var(--color-gray-2), .5);
-  --color-g-border-2: var(--color-gray-2);
-
   /* FONT FAMILY */
-  --font-sans: "Source Sans", sans-serif;
-  --font-serif: "Libre Baskerville", serif;
+  --font-source: "Source Sans", sans-serif;
+  --font-libre: "Libre Baskerville", serif;
 
   /* FONT WEIGHT */
   --weight-light: 300;
-  --weight-book: 400;
+  --weight-regular: 400;
   --weight-bold: 700;
   --weight-black: 900;
 
@@ -275,9 +265,25 @@ Modularize the variables with a source of truth in a color book that is provided
 
   /* GLOBAL MEASUREMENTS */
   --global-radius: 6px;
+  --global-radius-small: 2px;
 
   /* GLOBAL TRANSITION */
-  --global-transitino: .2s ease;
+  --global-transition: .2s ease;
+}
+
+```
+`button.css`
+``` scss
+.button {
+  color: var(--color-white);
+  background-color: var(--color-black);
+  …
+}
+
+.button-inverted {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  …
 }
 
 ```
