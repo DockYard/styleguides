@@ -33,6 +33,14 @@ At [DockYard](https://dockyard.com/), we use PostCSS in our projects. [narwin-pa
 - [postcss-hexrgba](https://github.com/seaneking/postcss-hexrgba)
 - [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments)
 
+## SVG Jar Setup
+We use [SVG Jar](https://github.com/ivanvotti/ember-svg-jar) to handle embedding of our SVG images in our Ember projects. To install SVG Jar, run:
+
+`ember install ember-svg-jar`
+
+Place SVG files in your project's `public/svgs/icons` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
+
+For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
 
 ## Example File Structure
 
@@ -102,22 +110,27 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -125,10 +138,12 @@ q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 textarea,
 input,
 select,
@@ -139,19 +154,25 @@ button {
   appearance: none;
   background: transparent;
 }
+
 textarea {
   min-height: 8.5em; /* height of 3 lines */
 }
+
 select,
 button {
   line-height: 1em;
   cursor: pointer;
 }
+
 /* HTML box-sizing: border-box; reset */
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -177,9 +198,10 @@ be better and would not belong in `layout.css`, but in `header.css`. We should
 should not specify component classes in `layout.css`, only global classes.
 
 `layout.css`
-```css
+```scss
 .l-body {
   display: grid;
+
   @media (max-width: 799px) {
     grid-template-areas:
       "header"
@@ -188,6 +210,7 @@ should not specify component classes in `layout.css`, only global classes.
       "footer";
     grid-template-columns: 1fr;
   }
+
   @media (min-width: 800px) {
     grid-template-areas:
       "header header"
@@ -196,12 +219,15 @@ should not specify component classes in `layout.css`, only global classes.
     grid-template-columns: 3fr 1fr;
   }
 }
+
 .l-body--small {
   max-width: 680px;
 }
+
 .l-body--big {
   max-width: 1020px;
 }
+
 .l-main {
   grid-area: main;
 }
@@ -262,6 +288,7 @@ Modularize the variables with a source of truth in a color book that is provided
 
   /* GLOBAL COMPONENT COLORS */
   --color-g-component-shadow: 0 2px 14px 0 rgba(var(--color-gray-3), .27);
+  --color-g-component-shadow-focus: 0 4px 8px -6px rgba(0,0,0,0.08), 0 0 11px 0 rgba(0,0,0,0.06), 0 8px 12px -6px rgba(0,0,0,0.10)
 
   /* GLOBAL MEASUREMENTS */
   --global-radius: 6px;
@@ -297,7 +324,7 @@ Typography properties include all styles that effect typography. They don't touc
 
 In the `:root` define your type scale used throughout the project.
 
-```css
+```scss
 :root {
   --type-scale-12: .75rem;
   --type-scale-16: 1rem;
@@ -310,12 +337,14 @@ In the `:root` define your type scale used throughout the project.
 `.t-display` is used for the shared display font style. Most likely a
 page heading.
 
-```css
+```scss
 .t-display {
   font-weight: var(--weight-bold);
+
   @media (max-width: 799px) {
     font-size: var(--type-scale-24);
   }
+
   @media (min-width: 800px) {
     font-size: var(--type-scale-32);
   }
@@ -325,7 +354,7 @@ page heading.
 `.t-body` is used for the shared text font style. Most likely the styles
 used for blocks of text on a blog or static pages.
 
-```css
+```scss
 .t-body {
   font-size: var(--type-scale-16);
   font-weight: var(--weight-book);
@@ -336,7 +365,7 @@ used for blocks of text on a blog or static pages.
 `.t-link` is used for shared text link styles. Most likely links that
 appear within a `.t-text`.
 
-```css
+```scss
 .t-link {
   border-bottom: 1px dotted var(--color-g-border-1);
   transition: .2s ease border-bottom, .2s ease color;
@@ -348,17 +377,9 @@ appear within a `.t-text`.
     border-bottom-style: solid;
     border-bottom-color: var(--color-black);
   }
+
   &:focus {
-    box-shadow: 0 4px 8px -6px rgba(0,0,0,0.08), 0 0 11px 0 rgba(0,0,0,0.06), 0 8px 12px -6px rgba(0,0,0,0.10)
+    box-shadow: var(--color-g-component-shadow-focus);
   }
 }
 ```
-
-## SVG Jar Setup
-We use [SVG Jar](https://github.com/ivanvotti/ember-svg-jar) to handle embedding of our SVG images in our Ember projects. To install SVG Jar, run:
-
-`ember install ember-svg-jar`
-
-Place SVG files in your project's `public/svgs/icons` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
-
-For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
