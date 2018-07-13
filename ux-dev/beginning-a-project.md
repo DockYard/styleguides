@@ -24,21 +24,21 @@
 ## Get narwin-pack
 At [DockYard](https://dockyard.com/), we use PostCSS in our projects. [narwin-pack](https://github.com/DockYard/narwin-pack) is our curated collection of PostCSS plugins including:
 
-- [postcss-partial-import](https://github.com/jonathantneal/postcss-partial-import),
-- [postcss-nested](https://github.com/postcss/postcss-nested),
-- [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties),
-- [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg),
-- [postcss-svgo](https://github.com/ben-eb/postcss-svgo),
-- [autoprefixer](https://github.com/postcss/autoprefixer),
-- [postcss-hexrgba](https://github.com/seaneking/postcss-hexrgba)
-- [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments)
+- [`postcss-partial-import`](https://github.com/jonathantneal/postcss-partial-import),
+- [`postcss-nested`](https://github.com/postcss/postcss-nested),
+- [`postcss-custom-properties`](https://github.com/postcss/postcss-custom-properties),
+- [`postcss-inline-svg`](https://github.com/TrySound/postcss-inline-svg),
+- [`postcss-svgo`](https://github.com/ben-eb/postcss-svgo),
+- [`autoprefixer`](https://github.com/postcss/autoprefixer),
+- [`postcss-hexrgba`](https://github.com/seaneking/postcss-hexrgba)
+- [`postcss-discard-comments`](https://github.com/ben-eb/postcss-discard-comments)
 
 ## SVG Jar Setup
 We use [SVG Jar](https://github.com/ivanvotti/ember-svg-jar) to handle embedding of our SVG images in our Ember projects. To install SVG Jar, run:
 
 `ember install ember-svg-jar`
 
-Place SVG files in your project's `public/svgs/icons` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
+Place SVG files in your project's `public/svgs` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
 
 For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
 
@@ -360,7 +360,7 @@ Modularize the variables with a source of truth in a color book that is provided
 Syles in `typography.css` should be specific to typographic properties. You should apply layout
  through BEM and match the typography class, such as `t-link` with a BEM class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
 
-Typography properties include all styles that effect typography. They don't touch the box-model and try to avoid colors. Some examples include: font-family, font-style, font-weight. Some examples of properties that don't belong are: padding, display, z-index
+Typography properties include all styles that effect typography. They don't touch the box-model and try to avoid colors. Some examples include: `font-family`, `font-style`, `font-weight`. Some examples of properties that don't belong are: `padding`, `display`, `z-index`
 
 In the `:root` define your type scale used throughout the project.
 
