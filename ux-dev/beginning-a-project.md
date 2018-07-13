@@ -22,7 +22,7 @@
 * Does the client have licenses to all the fonts being used?
 
 ## Get narwin-pack
-At [DockYard](https://dockyard.com/), we use PostCSS in our projects. [narwin-pack](https://github.com/DockYard/narwin-pack) is our curated collection of PostCSS plugins including:
+At [DockYard](https://dockyard.com/), we use PostCSS in our projects. [`narwin-pack`](https://github.com/DockYard/narwin-pack) is our curated collection of PostCSS plugins including:
 
 - [`postcss-partial-import`](https://github.com/jonathantneal/postcss-partial-import),
 - [`postcss-nested`](https://github.com/postcss/postcss-nested),
@@ -42,8 +42,8 @@ Place SVG files in your project's `public/svgs` directory. Using Chrome, visit [
 
 For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
 
-## stylelint-config-narwin Setup
-We use [stylelint-config-narwin](https://github.com/DockYard/stylelint-config-narwin#installation) to push the UXD team in the same direction for CSS best practices. To install `stylelint-config-narwin`
+## `stylelint-config-narwin` Setup
+We use [`stylelint-config-narwin`](https://github.com/DockYard/stylelint-config-narwin#installation) to push the UXD team in the same direction for CSS best practices. To install `stylelint-config-narwin`
 
 ```
 npm install stylelint-config-standard --save-dev
@@ -79,7 +79,7 @@ module.exports = function(defaults) {
   });
 ....
 ```
-Additional configuration options can be found in the [stylelint-config-narwin documentation](https://github.com/DockYard/stylelint-config-narwin#extending-the-config).
+Additional configuration options can be found in the [`stylelint-config-narwin` documentation](https://github.com/DockYard/stylelint-config-narwin#extending-the-config).
 
 
 ## Example File Structure
