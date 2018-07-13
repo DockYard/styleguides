@@ -357,10 +357,10 @@ Modularize the variables with a source of truth in a color book that is provided
 
 ## TYPOGRAPHY.CSS
 
-Syles in `typography.css` should be specific to typographic properties. You should apply layout
+Styles in `typography.css` should be specific to typographic properties. You should apply layout
  through BEM and match the typography class, such as `t-link` with a BEM class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
 
-Typography properties include all styles that effect typography. They don't touch the box-model and try to avoid colors. Some examples include: `font-family`, `font-style`, `font-weight`. Some examples of properties that don't belong are: `padding`, `display`, `z-index`
+Typography properties include all styles that effect typography. They don't touch the box-model and try to avoid colors. Some examples include: `font-family`, `font-style`, `font-weight`. Some examples of properties that don't belong are: `padding`, `display`, `z-index`.
 
 In the `:root` define your type scale used throughout the project.
 
