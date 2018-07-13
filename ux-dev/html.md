@@ -45,11 +45,11 @@ Another example:
 ...leaves spaces before and after the list, but removes between items.
 
 ## Comments
-The most common HTML comment at DockYard is a TODO. TODOs are used to track items that need to be completed at a later date (such as incomplete placeholder links, images, and copy) or when engineering is needed to complete the work. 
+The most common HTML comment at DockYard is a `TODO`. `TODO`s are used to track items that need to be completed at a later date (such as incomplete placeholder links, images, and copy) or when engineering is needed to complete the work. 
 
-When writing a TODO, specify if it is for UXD or engineering. If it’s for engineering, make sure to communicate that TODO with an engineer via a tag in the PR, a ping in the project Slack, or both. 
+When writing a `TODO`, specify if it is for UXD or engineering. If it’s for engineering, make sure to communicate that `TODO` with an engineer via a tag in the PR, a ping in the project Slack, or both. 
 
-When you finish a TODO, delete the comment.
+When you finish a `TODO`, delete the comment.
 
 Example:
 ```html
