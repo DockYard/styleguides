@@ -42,6 +42,46 @@ Place SVG files in your project's `public/svgs/icons` directory. Using Chrome, v
 
 For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
 
+## stylelint-config-narwin Setup
+We use [stylelint-config-narwin](https://github.com/DockYard/stylelint-config-narwin#installation) to push the UXD team in the same direction for CSS best practices. To install `stylelint-config-narwin`
+
+```
+npm install stylelint-config-standard --save-dev
+npm install stylelint-config-narwin --save-dev
+```
+
+### For Ember-specific installations
+
+```
+npm install stylelint-config-narwin --save-dev
+ember install ember-cli-stylelint
+```
+
+In your project root, you'll have a newly created file, `stylelint`. Add the following:
+
+```js
+{
+  "extends": "stylelint-config-narwin"
+}
+```
+
+Additionally, in your `ember-cli-build.js` we'll need to update thet CSS linter for CSS instead of SCSS:
+```js
+....
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    // Add options here
+    stylelint: {
+      linterConfig: {
+        syntax: 'css'
+      }
+    }
+  });
+....
+```
+Additional configuration options can be found in the [stylelint-config-narwin documentation](https://github.com/DockYard/stylelint-config-narwin#extending-the-config).
+
+
 ## Example File Structure
 
 ```
