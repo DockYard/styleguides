@@ -18,26 +18,26 @@ We follow the order below for listing attributes on an element:
 In Handlebars, you can add a tilde `~` character inside tags to remove whitespace before or after a component or output. This is useful for removing line breaks that make code more readable, but negatively impact styles because of browser-rendered whitespace. You don't need to do this with every instance of handlebars and should use this as needed.
 
 You could do this:
-```html
+```hbs
 <section>
   {{~content~}}
 </section>
 ```
 
 Instead of this:
-```html
+```hbs
 <section>{{content}}</section>
 ```
 
 Another example:
-```html
+```hbs
 {{~#each item in model~}}
    {{item}}
 {{~/each~}}
 ```
 ...removes whitespace before and after the list, and between items. While...
 
-```html
+```hbs
 {{#each item in model}}
    {{~item~}}
 {{/each}}
