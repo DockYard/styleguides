@@ -3,12 +3,12 @@ At DockYard, we use semantic HTML to ensure content is accessible and conveys me
 
 ## Attribute Order
 We follow the order below for listing attributes on an element:
-* class
-* id, name
-* src, for, type, href, value
-* title, alt
-* role, aria-*
-* data-*
+* `class`
+* `id`, `name`
+* `src`, `for`, `type`, `href`, `value`
+* `title`, `alt`
+* `role`, `aria-*`
+* `data-*`
 
 ## Escaping characters
 * [Use escapes for `&lt;`(<), `&gt;`(>), `&amp;`(&).](https://www.w3.org/International/questions/qa-escapes#use)
