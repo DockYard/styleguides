@@ -382,7 +382,7 @@ end
   based validations for model instances.
 
 * [`destroyed_at`](https://github.com/dockyard/ruby-destroyed_at): Allows you to
-  "destroy" an object without deleting the record or assocaited records.
+  "destroy" an object without deleting the record or associated records.
 
 * [`easy_auth`](https://github.com/dockyard/ruby-easy_auth): Simple drop in authentication
   for Rails 3.2+
