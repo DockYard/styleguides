@@ -44,7 +44,7 @@ or helper name.
 
 ## Line Breaks and Whitespace
 
-It can be helpful to have a multi-line expression be on a separate line its parent HTML—particularly when merging in `git`. When needed, you can optionally use [whitespace control](http://handlebarsjs.com/expressions.html#whitespace-control) to remove whitespace before or after an expression.
+It can be helpful to have a multi-line expression be on a separate line than its parent HTML, particularly when merging in `git`. When needed, you can optionally use [whitespace control](http://handlebarsjs.com/expressions.html#whitespace-control) to remove whitespace before or after an expression.
 
 Whitespace may be omitted from either side of any mustache statement by adding a `~` character by the braces. When applied, all whitespace on that particular side will be removed up to the first handlebars expression or non-whitespace character on that side.
 
