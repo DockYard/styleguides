@@ -137,9 +137,9 @@ end
 wall.paint(:favorite_color)
 ```
 
-* Add a new line in between method definitions.
+* Add a new line between method definitions.
 
-* Do not include newlines between areas of different indentation
+* Do not include new lines between areas of different indentation
   (such as around class or module bodies).
 
 ```ruby
