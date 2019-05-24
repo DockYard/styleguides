@@ -1,18 +1,18 @@
-# Ruby Style Conventions
+# Ruby Style Guide
 
 ## Table of Contents
   1.  [Whitespace](#whitespace)
-      1. [Indentation](#indentation)
-      1. [Inline](#inline)
-      1. [Newlines](#newlines)
+      * [Indentation](#indentation)
+      * [Inline](#inline)
+      * [Newlines](#newlines)
   1.  [Commenting](#commenting)
-      1. [Commented-out code](#commented-out-code)
+      * [Commented-out code](#commented-out-code)
   1.  [Methods](#methods)
-      1. [Method definitions](#method-definitions)
-      1. [Method calls](#method-calls)
+      * [Method definitions](#method-definitions)
+      * [Method calls](#method-calls)
   1.  [Conditional Expressions](#conditional-expressions)
-      1. [Conditional keywords](#conditional-keywords)
-      1. [Ternary operator](#ternary-operator)
+      * [Conditional keywords](#conditional-keywords)
+      * [Ternary operator](#ternary-operator)
   1.  [Syntax](#syntax)
   1.  [Naming](#naming)
   1.  [Classes](#classes)
@@ -32,6 +32,53 @@ class Pokemon
 ∙∙def weakness
 ∙∙∙∙# Handles weakness
   end
+end
+```
+
+* Indent the `public`, `protected`, and `private` methods as deep as the method
+  definitions they apply to. Leave a blank line above and below the
+  modifier to emphasize that it applies to all methods below it.
+
+```ruby
+class Pokemon
+  def public_method
+    # [...]
+  end
+
+  private
+
+  def private_method
+    #[...]
+  end
+
+  def another_private_method
+    #[...]
+  end
+```
+
+* Indent `when` as deep as `case`
+
+* If the parameters of a method call span more than one line, align them with
+  one level of indentation relative to the start of the line.
+
+```ruby
+def send_mail(source)
+  Mailer.deliver(
+    to: 'thor@asgard.com',
+    from: 'pquill@guardians.net',
+    subject: 'I am the captain of this ship!',
+    body: source.text
+  )
+end
+```
+
+* In multi-boolean expressions, indent succeeding lines
+
+```ruby
+def process_job_contacts?
+  is_in_progress? &&
+    stage_type.email_ready? &&
+    contacts_completed?
 end
 ```
 
@@ -56,6 +103,28 @@ some(arg).other
 [1, 2, 3].length
 ```
 
+* Do not include a space before a comma.
+
+* Do not include spaces inside block parameter pipes.
+
+```ruby
+# bad
+ACCEPTED_TYPES.each_with_index do | accepted_type, i |
+
+# good
+ACCEPTED_TYPES.each_with_index do |accepted_type, i|
+```
+
+* Avoid whitespace during string interpolation.
+
+```ruby
+# bad
+location = "#{ folder_name }/files/downloads"
+
+# good
+location = "#{folder_name}/files/downloads"
+```
+
 ### Newlines
 
 * Add a new line after conditionals, blocks, case statements, etc.
@@ -68,6 +137,39 @@ end
 wall.paint(:favorite_color)
 ```
 
+* Add a new line in between method definitions.
+
+* Do not include newlines between areas of different indentation
+  (such as around class or module bodies).
+
+```ruby
+# bad
+class MyClass
+
+  include ActiveModel::Model
+
+# good
+class MyClass
+  include ActiveModel::Model
+```
+
+* Add a new line after a return statement.
+
+```ruby
+# bad
+def my_method(user)
+  return unless user.admin?
+  do_something
+end
+
+# good
+def my_method(user)
+  return unless user.admin?
+
+  do_something
+end
+```
+
 ## Commenting
 
 > Though a pain to write, comments are absolutely vital to keeping our code
@@ -76,14 +178,17 @@ wall.paint(:favorite_color)
 > self-documenting. Giving sensible names to types and variables is much better
 > than using obscure names that you must then explain through comments.
 
-> When writing your comments, write for your audience: the next contributor who
-> will need to understand your code. Be generous — the next one may be you!
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
- - [Google C++ Style Guide](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Comments)
+* Write comments for your audience; other developers.
 
-### Commented-out code
+* Please use comment keywords such as `TODO:`, `NOTE:`, `OPTIMIZE:`,  etc.
+  If applicable include links to relevant information (such as stack overflow
+  links, blog links, links to PRs, etc).
 
-Please don't leave commented-out code, Brian will personally hunt you down.
+* Don’t use block comments
+
+* Never leave commented out code in the codebase.
 
 ## Methods
 
@@ -102,8 +207,10 @@ def some_method_with_arguments(arg1, arg2)
 end
 ```
 
-* Do not use default arguments. Use keyword arguments instead.
-  * [Keyword arguments were introduced in Ruby 2.0](http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail/#keyword_arguments)
+* Do not use default arguments. Use keyword arguments instead. Keyword arguments
+  allow us to switch the order of the arguments, without affecting the
+  behavior of the method
+  * [Ruby 2.0 Keyword Arguments](https://thoughtbot.com/blog/ruby-2-keyword-arguments)
 
 ```ruby
 # bad
@@ -135,9 +242,9 @@ if some_condition
 end
 ```
 
-* The `and` and `or` keywords are banned. They have a lower order of
-  precedence and will cause unexpected side effects. Always use `&&` and
-  `||` instead.
+* The `and`, `or`, and `not` keywords are banned. They have a lower order of
+  precedence and will cause unexpected side effects. Always use `&&`,  `||`, and
+  `!` instead.
 
 * Modifier `if/unless` usage is okay when the body is simple, the
   condition is simple, and the whole thing fits on one line. Otherwise,
@@ -196,6 +303,28 @@ if (x = self.next_value)
 end
 ```
 
+### Guard Clauses
+
+* Prefer a guard clause when you can assert invalid data. A guard clause is a
+  conditional statement at the top of a function that bails out as soon as
+  it can.
+
+```ruby
+# bad
+def method(object)
+  if object.name.present?
+    do_something
+  end
+end
+
+# good
+def method(object)
+  return unless object.name.present?
+
+  do_something
+end
+```
+
 ### Ternary operator
 
 * Avoid the ternary operator (`?:`) except in cases where all expressions are
@@ -227,6 +356,28 @@ end
 ```
 
 * Avoid multi-line `?:` (the ternary operator), use `if/then/else/end` instead.
+
+### Nested Conditionals
+
+* Avoid using nested conditionals - instead, use a guard clause when you can
+  assert valid data.
+
+* Prefer `next` in loops instead of using a conditional block.
+
+```ruby
+# bad
+heroes.each do |hero|
+  if hero.superpower == 'Teleportation'
+    puts 'Nightcrawler'
+  end
+end
+
+# good
+heroes.each do |hero|
+  next unless hero.superpower == 'Teleportation'
+  puts 'Nightcrawler'
+end
+```
 
 ## Syntax
 
@@ -320,6 +471,7 @@ bluths.select { |bluth| bluth.blue_self? }
 bluths.map(&:occupation)
 bluths.select(&:blue_self?)
 ```
+* Avoid `self` where not required
 
 ## Naming
 
@@ -377,29 +529,6 @@ class TestClass
   def self.some_other_method
     ...
   end
-```
-
-* Indent the `public`, `protected`, and `private` methods as much the
-  method definitions they apply to. Leave one blank line above them.
-
-```ruby
-class SomeClass
-  def public_method
-    # ...
-  end
-
-  protected
-
-  def protected_method
-    # ...
-  end
-
-  private
-
-  def private_method
-    # ...
-  end
-end
 ```
 
 ## Exceptions
@@ -514,20 +643,19 @@ end
 
 ## Be Consistent
 
-> If you're editing code, take a few minutes to look at the code around you and
-> determine its style. If they use spaces around all their arithmetic
-> operators, you should too. If their comments have little boxes of hash marks
-> around them, make your comments have little boxes of hash marks around them
-> too.
+> If you are editing code, take a few minutes to look at the code around you and
+> determine its style. If they use spaces around their if clauses, you should,
+> too. If their comments have little boxes of stars around them, make your
+> comments have little boxes of stars around them too.
+>
+> The point of having style guidelines is to have a common vocabulary of coding so
+> people can concentrate on what you are saying, rather than on how you are saying
+> it. We present global style rules here so people know the vocabulary. But local
+> style is also important. If code you add to a file looks drastically different
+> from the existing code around it, the discontinuity throws readers out of their
+> rhythm when they go to read it. Try to avoid this.
 
-> The point of having style guidelines is to have a common vocabulary of coding
-> so people can concentrate on what you're saying rather than on how you're
-> saying it. We present global style rules here so people know the vocabulary,
-> but local style is also important. If code you add to a file looks
-> drastically different from the existing code around it, it throws readers out
-> of their rhythm when they go to read it. Avoid this.
-
-[Google C++ Style Guide](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html)
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
 Thanks to these kind folks!
 
