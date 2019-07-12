@@ -5,7 +5,7 @@ We are currently using [PostCSS](https://github.com/postcss/postcss/) with [narw
 ## Syntax
 
 * Use soft tabs with two spaces — they're the only way to guarantee code renders the same in any environment.
-  * See our [onboarding editors information](https://github.com/dockyard/styleguides/blob/master/ux-dev/ux-developer-onboarding.md#editors)
+* See our [onboarding editors information](https://github.com/dockyard/styleguides/blob/master/ux-dev/ux-developer-onboarding.md#editors)
 * When grouping selectors, each selector goes on a new line
 * Include one space before the opening brace of declaration blocks for legibility.
 * Place closing braces of declaration blocks on a new line.
@@ -94,7 +94,7 @@ All our `min-width` values should be on "whole number" e.g., `960px`, `576px`. A
 
 ## Resources
 * [MDN Web Docs](https://developer.mozilla.org/en-US/)
-* [Scalable and Modular Architecture for CSS by Jonathan Snook](https://smacss.com/)
+* [Scalable and Modular Architecture for CSS by Jonathan Snook](http://smacss.com/)
 * [CSS Secrets](http://shop.oreilly.com/product/0636920031123.do)
 * [Code Smells in CSS](http://csswizardry.com/2012/11/code-smells-in-css/)
 * [Writing DRYer vanilla CSS](http://csswizardry.com/2013/07/writing-dryer-vanilla-css/)

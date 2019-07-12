@@ -165,7 +165,7 @@ BEM is our primary class naming pattern, but we also borrow some SMACSS techniqu
 
 ### State Classes
 
-The [modifier classes described above](#modifiers) are for style variations that are part of a component's normal state. For style changes that change while the user interacts with the site, [SMACSS's `.is-*` and `.has-*` classes](https://smacss.com/book/type-state) are recommended.
+The [modifier classes described above](#modifiers) are for style variations that are part of a component's normal state. For style changes that change while the user interacts with the site, [SMACSS's `.is-*` and `.has-*` classes](http://smacss.com/book/type-state) are recommended.
 
 #### `.is-*`
 

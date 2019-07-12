@@ -117,7 +117,7 @@ Order should be alphabetical inside `modules` directory.
 ## BASE.CSS
 
 Follows
-[SMACSS’ Base Rules](https://smacss.com/book/type-base). Defines major default styling.
+[SMACSS’ Base Rules](http://smacss.com/book/type-base). Defines major default styling.
 Does not include class or ID selectors.
 
 We use modified versions of the
@@ -227,7 +227,7 @@ textarea:-moz-ui-invalid {
 ## LAYOUT.CSS
 
 This does NOT closely follow
-[SMACSS' Layout Rules](https://smacss.com/book/type-layout).
+[SMACSS' Layout Rules](http://smacss.com/book/type-layout).
 We use `layout.css` for wraps, grids and columns. Here is a
 [JS Bin](https://jsbin.com/hijavakimu/edit?html,css,output) that illustrates some
 common patterns.
