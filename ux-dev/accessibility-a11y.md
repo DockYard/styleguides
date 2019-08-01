@@ -8,16 +8,42 @@
 - [eBay's MIND Patterns](https://ebay.gitbooks.io/mindpatterns/)
 
 ## Discovery/Testing/Audits
+
+### Keyboard Testing
+Testing your work with a keyboard allows you to ensure that you have distinct focus states and that the tab order is logical.
+
+The following keyboard commands are helpful:
+- `tab` to navigate between interactive elements
+- `shift + tab` to navigate backwards
+- `enter` to activate links and buttons
+- `space` to activate checkboxes and buttons
+
+### Screenreader Testing
+All screenreaders will read markup in slightly different ways. Manually testing your work with a screenreader is important because it allows you to confirm that any items that need hidden text have hidden text, that your hidden text makes sense, and that any extraneous information is hidden from the screenreaders.
+
+Possible screenreaders to use to test your work include:
 - VoiceOver (Mac only, activate with `⌘F5`)
 - [NVDA](https://www.nvaccess.org/) (cross-platform)
+
+For VoiceOver, the following keyboard commands are helpful:
+- `control + option + H` to navigate between headings
+- `control + option + X` to navigate between lists
+- `control + option + T` to navigate between tables
+- Arrow keys to navigate between radio buttons, select/dropdown options, sliders, and tab panels
+
+Jessica Jordan wrote a very helpful article [deep diving into testing with VoiceOver](http://uncaughtreferenceerror.com/a-crash-course-to-screenreaders-for-sighted-developers/).
+
+### Automated Testing
+- Lighthouse Accessibility Audit (in Chrome Dev Tools)
+- [Tota11y](http://khan.github.io/tota11y/) by Khan Academy
+- [WAVE Evaluation Tool](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) or [WAVE by WebAIM](http://wave.webaim.org/)
+
+### Color Contrast Testing
 - Contrast ratio checkers
   - [http://accessible-colors.com/](http://accessible-colors.com/)
   - [http://jxnblk.com/colorable/demos/text/](http://jxnblk.com/colorable/demos/text/) (helpful for quickly finding a passing alternative by only adjusting the lightness value)
   - [Color Oracle](http://colororacle.org/) (also includes tests for color blindness)
   - [Contrast Analyser](https://developer.paciellogroup.com/resources/contrastanalyser/)
-- Chrome Accessibility Audit
-- [Tota11y](http://khan.github.io/tota11y/) by Khan Academy
-- [WAVE Evaluation Tool](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) or [WAVE by WebAIM](http://wave.webaim.org/)
 
 ## Process
 
