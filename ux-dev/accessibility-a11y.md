@@ -367,6 +367,19 @@ Upon dismissmal, the user's focus should return to the last focusable element. I
 
 For more information, reference [WAI-ARIA's guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/#alertdialog) and [A11ycast's episode on alerts](https://www.youtube.com/watch?v=5lzAj1ahRSI).
 
+## Helpful Tips
+
+### Animation
+
+Animation can be used to help with wayfinding or to surprise and delight users. It's important to use animation in a responsible way as it can trigger [vestibular disorders](https://a11yproject.com/posts/understanding-vestibular-disorders/). For a deep dive, read Val Head's article on [animating responsibly](http://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/).
+
+High level tips for animation:
+- Be careful of too much motion
+- If there is continous motion, include ways for users to stop and hide the animation ([W3C Criteria 2.2.2](https://www.w3.org/TR/WCAG20-TECHS/F16.html)).
+- Avoid strobing and fast motion
+- Utilize the [`prefers-reduced-motion`](https://css-tricks.com/introduction-reduced-motion-media-query/) media query for users who have opted to reduce motion at an OS level. 
+
+
 ## ARIA
 
 - Most ARIA roles are implicit in semantic HTML5 elements. Reference [the document conformance table from the W3C](https://www.w3.org/TR/html-aria/#docconformance) to see if an element needs an explicit ARIA role. If you set an explicit ARIA role, note that each element should only have one role and that you should not set a role that overrides the semantics of an element.
