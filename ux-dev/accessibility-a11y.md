@@ -375,7 +375,7 @@ Animation can be used to help with wayfinding or to surprise and delight users. 
 
 High level tips for animation:
 - Be careful of too much motion
-- If there is continous motion, include ways for users to stop and hide the animation ([W3C Criteria 2.2.2](https://www.w3.org/TR/WCAG20-TECHS/F16.html)).
+- If there is continuous motion, include ways for users to stop and hide the animation ([W3C Criteria 2.2.2](https://www.w3.org/TR/WCAG20-TECHS/F16.html)), and strongly consider having the motion paused by default.
 - Avoid strobing and fast motion
 - Utilize the [`prefers-reduced-motion`](https://css-tricks.com/introduction-reduced-motion-media-query/) media query for users who have opted to reduce motion at an OS level. 
 
