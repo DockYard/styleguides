@@ -19,7 +19,7 @@ The following keyboard commands are helpful:
 - `space` to activate checkboxes and buttons
 
 ### Screenreader Testing
-All screenreaders will read markup in slightly different ways. Manually testing your work with a screenreader is important because it allows you to confirm that any items that need hidden text have hidden text, that your hidden text makes sense, and that any extraneous information is hidden from the screenreaders.
+All screenreaders will read markup in slightly different ways. Manually testing your work with a screenreader is important because it allows you to confirm that any items that need hidden text have it available, that your hidden text makes sense, and that any extraneous information is hidden from the screenreaders.
 
 Possible screenreaders to use to test your work include:
 - VoiceOver (Mac only, activate with `⌘F5`)
