@@ -22,7 +22,7 @@ The following keyboard commands are helpful:
 All screenreaders will read markup in slightly different ways. Manually testing your work with a screenreader is important because it allows you to confirm that any items that need hidden text have it available, that your hidden text makes sense, and that any extraneous information is hidden from the screenreaders.
 
 Possible screenreaders to use to test your work include:
-- VoiceOver (Mac only, activate with `⌘F5`)
+ - VoiceOver (Mac only, activate with `⌘ + F5`)
 - [NVDA](https://www.nvaccess.org/) (cross-platform)
 
 For VoiceOver, the following keyboard commands are helpful:
