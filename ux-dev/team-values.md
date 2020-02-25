@@ -64,7 +64,7 @@ We practice this by:
   * We are willing to create and challenge existing patterns
   * We do our best to forsee problems in advance
 * Collaboration
-  * We're available for pairing and discussion — no one works on an island
+  * We're available for pairing and discussion—no one works on an island
   * We are able to pair across projects when NDAs allow 
   * We can seamlessly move between projects and conventions
   * Contributions are welcomed and heard
