@@ -83,7 +83,7 @@ We practice this by:
 
 
 ## Empathetic
-"We truly understand users, clients, and fellow employees. We champion diversity and respect varied experiences and ideas."
+> We truly understand users, clients, and fellow employees. We champion diversity and respect varied experiences and ideas.
 
 We are: understanding, user-focused, considerate
 We are not: thoughtless, indifferent, malicious
