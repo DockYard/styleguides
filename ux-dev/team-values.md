@@ -108,7 +108,7 @@ We practice this by:
 
 
 ## Responsible
-"We’re passionate open-source, community, and environmental stewards."
+> We’re passionate open-source, community, and environmental stewards.
 
 We are: reliable, accountable, dependable
 We are not: fickle, deceitful, untrustworthy
