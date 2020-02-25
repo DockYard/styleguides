@@ -28,7 +28,7 @@ We practice this by:
 
 
 ## Authentic
-"We’re genuine, straightforward, honest, and trustworthy."
+> We’re genuine, straightforward, honest, and trustworthy.
 
 We are: credible, sincere, trustworthy
 We are not: deceptive, unreliable
