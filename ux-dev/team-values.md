@@ -3,7 +3,7 @@
 At DockYard, we are not only passionate about the industry and our clients, we’re also principled. Our Core Values guide how we work and inspire our interactions with others. Below is how UXD puts our values into practice, as established at our fall 2019 engineering retreat.
 
 ## Exceptional
-"We’re on the bleeding edge of digital product innovation. We’re experts at strategy, user experience, design, and engineering."
+> We’re on the bleeding edge of digital product innovation. We’re experts at strategy, user experience, design, and engineering.
 
 We are: extraordinary, remarkable, unusual
 We are not: conventional, standard, mediocre
