@@ -11,6 +11,7 @@
 
 ### UX Development
 
++ [Our Team Values](https://github.com/dockyard/styleguides/blob/master/ux-dev/team-values.md)
 + [HTML](https://github.com/dockyard/styleguides/blob/master/ux-dev/html.md)
 + [Class naming conventions](https://github.com/dockyard/styleguides/blob/master/ux-dev/class-naming-conventions.md)
 + [CSS](https://github.com/dockyard/styleguides/blob/master/ux-dev/css.md)
