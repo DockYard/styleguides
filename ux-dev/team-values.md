@@ -103,7 +103,7 @@ We practice this by:
   * We practice graceful degredation
   * We strive to provide better browser support than the minimum requirements
 * Coding accessibly
-  * We take an accessibility and usability first approach to our work
+  * We take an accessibility- and usability-first approach to our work
   * We work as a team to improve our collective accessibility knowledge
 
 
