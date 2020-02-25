@@ -53,7 +53,7 @@ We practice this by:
 
 
 ## Versatile
-"We’re collaborative, agile, adaptable, and open-minded."
+> We’re collaborative, agile, adaptable, and open-minded.
 
 We are: flexible, multifaceted, resourceful
 We are not: rigid, limited, unimaginative
