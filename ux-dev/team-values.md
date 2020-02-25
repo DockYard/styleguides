@@ -12,7 +12,7 @@ We practice this by:
 * Applying bleeding edge techniques and holding ourselves to high standards
   * "Good enough" isn't acceptable. We strive for completeness in thought and execution
   * We obsess over quality
-  * We hold ourselves as individuals and our work to high standards
+  * We hold our work and ourselves to high standards
   * We note new developments in the industry and work to understand and incorporate them into our workflow
   * Our discipline adds consideration for semantics, styles, and usability, which are often neglected
 * Incorporating evidence of quality into our process
