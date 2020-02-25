@@ -47,7 +47,7 @@ We practice this by:
   * We don't focus on "I think" when discussing approaches, rather thinking of who benefits from different approaches
   * Our PR review process is a learning experience, with honest feedback the whole team benefits from
 * Recognizing each other beyond our techncial skills
-  * Our whole and real selves show up and work — we aren't just impersonal code machines
+  * Our whole and real selves show up and work—we aren't just impersonal code machines
   * We have a variety of pre-UXD careers and backgrounds
   * We practice an inclusive and intentional hiring process to attract a diverse candidate pool
 
