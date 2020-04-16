@@ -328,8 +328,10 @@ another module (such as a test).
 
 * No newline after defmodule, starting with `@moduledoc`, followed by `use`'s, `import`'s, and `alias`'s
 
+* Organize multiple `alias`'s and `import`'s alphabetically, with increased nesting.
+
 ```elixir
-defmodule Exam do
+defmodule ArtEducation.Exam do
   @moduledoc """
   Short one line summary, ending in period.
 
@@ -337,8 +339,13 @@ defmodule Exam do
   """
 
   use GenServer
-  import App.Router.Helpers
-  alias App.Repo
+
+  import Mogrify
+  import SweetXml
+
+  alias ArtEducation.Images
+  alias ExAws.S3
+  alias ExAws.S3.Upload
 
   def start_link do
     ...
