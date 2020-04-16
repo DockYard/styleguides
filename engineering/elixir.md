@@ -328,7 +328,7 @@ another module (such as a test).
 
 * No newline after defmodule, starting with `@moduledoc`, followed by `use`'s, `import`'s, and `alias`'s
 
-* Organize multiple `alias`'s and `import`'s alphabetically, increased nesting.
+* Organize multiple `alias`'s and `import`'s alphabetically, with increased nesting.
 
 ```elixir
 defmodule ArtEducation.Exam do
