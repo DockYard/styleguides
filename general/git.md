@@ -5,37 +5,38 @@
 1. [Commit Messages](#commit-messages)
    1. [Writing Message Titles](#writing-message-titles)
    1. [Writing Message Bodies](#writing-message-bodies)
+   1. [Committing with Multiple Authors](#committing-with-multiple-authors)
 
 ## Commit Messages
 
 Commit messages are an opportunity for us to convey a brief story or synopsis of
 work completed. We should be answering questions like:
 
-*What caused this original regression and why does this newly introduced code fix it?*,
-*What dependency was removed from the application, and how does this affect performance?*
-When commit messages answer questions like these, our audience - colleagues and clients -
-will have a better understanding in time of what our intention was.
+* What caused this original regression and why does this newly introduced code fix it?
+* What dependency was removed from the application, and how does this affect performance?
+
+When commit messages answer questions like these, our audience, colleagues and clients,
+will have a better understanding of what our intention was.
+
+The following is a list of items you should include in your commit message:
 
 * Descriptive commit title
-* Include supporting ticket number
 * What and Why
-
-How do we inform our audience?
-
-Let's take a look at some examples of commits for an Emac's init file.
+* Include supporting ticket number
 
 ### Writing Message Titles
 
 Commit message titles should be descriptive and succinct. Imagine that you
-have to scan a list of commit titles and messages - what characteristics would
+have to scan a list of commit titles and messages. What characteristics would
 make that task easier?
 
-Let's take a look at a set of commit titles that are inconsistent with varying
+Let's take a look at some examples of commits for an Emacs `init` file.
+Here is a set of commit titles that are inconsistent with varying
 degrees of information.
 
-```bash
+#### Not Recommended
 
-# Not ideal
+```bash
 
 $ git log --oneline -5
 
@@ -49,9 +50,9 @@ cea6ea8 fixes
 
 Now, here is a set of commit titles that are consistent, yet concise.
 
-```bash
+#### Recommended
 
-# Ideal
+```bash
 
 $ git log --oneline -5
 
@@ -67,9 +68,9 @@ By having clear commit titles, we can search through commits for keywords as wel
 For example (a very contrived example), let's use the aforementioned bad and good examples
 and let's try to search for the word `dired`.
 
-```bash
+#### Not Recommended
 
-# Not ideal
+```bash
 
 $ git log --oneline -1
 
@@ -85,9 +86,9 @@ $ git log --oneline -1 --grep='dired'
 Now using the set of well written commits, let's try searching for the keyword `dired`
 again.
 
-```bash
+#### Recommended
 
-# Ideal
+```bash
 
 $ git log --oneline -1
 
@@ -112,6 +113,7 @@ the time to convey the *why* and *how* in the commit body.
 Let's take a look at Tim Pope's [example of a model Git commit message.][pope-git-commit]
 
 ```bash
+
 Capitalized, short (50 chars or less) summary
 
 More detailed explanatory text, if necessary.  Wrap it to about 72
@@ -133,6 +135,7 @@ Further paragraphs come after blank lines.
   single space, with blank lines in between, but conventions vary here
 
 - Use a hanging indent
+
 ```
 
 In addition, we should include any keywords or references to ticket numbers. This
@@ -140,6 +143,7 @@ will help future team members find relevant information. Here's another contrive
 example that has a descriptive title and body.
 
 ```bash
+
 Add note about how to close tickets with a commit
 
 This commit will help users understand which ticket I want to close.
@@ -155,3 +159,22 @@ Close #1234
 ```
 
 [pope-git-commit]: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+
+### Committing with Multiple Authors
+
+Often times, we will work with colleagues and pair program together. When we are
+ready to commit, there is a benefit to committing together. By adding co-authors
+to our commits, we inform future team members that there were colleagues with
+immediate context of the code. Adding co-authors is fairly straightforward.
+
+```bash
+
+Add a commit with co-authors
+
+Here's the content of the commit. Talk with your team on where you'd like
+to add co-authors. Try the top or below of the commit.
+
+Co-authored-by: Narwin Narwhal <narwin@example.com>
+Co-authored-by: Nanny Narwhal <nanny@example.com>
+
+```
