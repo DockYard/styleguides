@@ -1,5 +1,9 @@
 # DockYard Styleguides
 
+### General
+
++ [Git](https://github.com/DockYard/styleguides/blob/master/general/git.md)
+
 ### Engineering
 
 + [Elixir](https://github.com/DockYard/styleguides/blob/master/engineering/elixir.md)
