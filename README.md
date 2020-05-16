@@ -10,6 +10,7 @@
 + [Ember](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
 + [Handlebars](https://github.com/DockYard/styleguides/blob/master/engineering/handlebars.md)
 + [JavaScript](https://github.com/DockYard/styleguides/blob/master/engineering/javascript.md)
++ [Phoenix](https://github.com/DockYard/styleguides/blob/master/engineering/phoenix.md)
 + [Ruby](https://github.com/DockYard/styleguides/blob/master/engineering/ruby.md)
 + [Ruby on Rails](https://github.com/DockYard/styleguides/blob/master/engineering/rails.md)
 
