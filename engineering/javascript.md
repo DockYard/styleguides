@@ -288,7 +288,12 @@ function foo() {
 
 ## Assignment
 
-+ Never use `var`. Prefer [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) to declare a block scope local variable; use [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) to declare a constant whose value can not be re-assigned in the given scope (global or local).
++ Never use `var`.
++ Use [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+to declare a block scope variable.
++ Use [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 
+to declare a constant whose value cannot be re-assigned in the current
+environment.
 
 ```javascript
 // good
