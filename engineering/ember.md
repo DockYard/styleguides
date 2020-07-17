@@ -98,28 +98,53 @@ export default Model.extend({
 });
 ```
 
-### Use `get` and `set`
+### Usage of `get` and `set`
 
-Calling `someObj.get('prop')` couples your code to the fact that
-`someObj` is an Ember Object. It prevents you from passing in a
-POJO, which is sometimes preferable in testing. It also yields a more
-informative error when called with `null` or `undefined`.
+Since ember v3.1 release, we are able to use native getters for majority
+of the cases where computed property access is needed. Ember `get` helper is
+still useful and required when:
 
-Although when defining a method in a controller, component, etc. you
-can be fairly sure `this` is an Ember Object, for consistency with the
-above, we still use `get`/`set`.
+- the lookup is nested such as `a.b.c` because Ember get helper can prevent uncaught null-property exceptions.
+- dealing with ember data promise proxy objects or async relationships.
+Ember proxy objects, including promise proxies, still require that you call `.get()` to read values.
+
+`object.get(attr)` and `object.set(attr, value)` should be prefered over
+`get(object, attr)` and `set(object, attr)` when Ember `get` helper is needed. This makes code more
+readable and consistent with JS native property access and community guidelines.
+
+Ember guides always use `this.get(property)` instead of `get(this, property)`,
+this practice also remove the need for an extra
+`import { get, set } from ember/object` line in certain files.
+
+In addition, complex object computed properties and actions should be unit-tested and
+it is highly suggested to track for any runtime errors with frontend error-tracking services.
+Eliminate the need for mocking a complex object in unit tests whenever possible, however when
+any data mocking is needed, correct types should be used:
+- when mocked property is always expected to be an EmberObject,
+EmberObject should be used instead of a native JS object.
+- when mocked property is expected to be an EmberArray,
+use EmberArray instead of native JS array.
+- when mocked property is expected to be an ember data model,
+please create or retrieve an instance of a target ember data model instead of a native JS object.
+- when mocked property is a service, owner.lookup should be used,
+for rare cases when true mocking is needed mocked object should extend from ember service.
+
+For pre-3.1 ember applications use `get(context, attr)` and `set(context, attr, value)`
+instead of `context.get(attr)` and `context.set(attr, value)`.
 
 ```js
-// Good
+// Bad
 import { get, set } from '@ember/object';
 
 set(this, 'isSelected', true);
 get(this, 'isSelected');
 
-// Bad
+// Good
 
 this.set('isSelected', true);
-this.get('isSelected');
+this.isSelected;
+this.get('model.comments.firstObject');
+this.get('model.comments.firstObject.createdAt');
 ```
 
 ### Use brace expansion
