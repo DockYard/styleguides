@@ -238,8 +238,8 @@ const potato = [
 ```javascript
 // good
 /**
-  This is documentation for something just below.
-*/
+ * This is documentation for something just below.
+ */
 function isItLunchTimeYet(time) {
   if (time) {
     return 'Yes.';
